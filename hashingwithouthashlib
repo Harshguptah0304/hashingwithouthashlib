@@ -1,0 +1,47 @@
+# Function to display hashtable
+def display_hash(hashTable):
+    for i in range(len(hashTable)):
+        print(i, end=" ")
+
+        for j in hashTable[i]:
+            print("-->", end=" ")
+            print(j, end=" ")
+
+        print()
+
+    # Creating Hashtable as
+
+
+# a nested list.
+HashTable = [[] for _ in range(5)]
+
+
+# Hashing Function to return
+# key for every value.
+def Hashing(keyval):
+    return keyval % len(HashTable)
+
+
+# Insert Function to add
+# values to the hash table
+def insert(Hashtable, keyval, value):
+    hash_key = Hashing(keyval)
+    Hashtable[hash_key].append(value)
+
+
+# Driver Code
+key = str()
+val = str()
+flag = True
+print('insert 0 as key to break the loop')
+while flag:
+    key = input('insert key:')
+    key = int(key)
+    if key <= 0:
+        flag = False
+        break
+    else:
+        val = input('insert value:')
+        insert(HashTable, key, val)
+
+display_hash(HashTable)
